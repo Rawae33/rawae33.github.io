@@ -1,0 +1,501 @@
+/* Global Styles */
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: black; /* Soft light blue background */
+    color: #2e3a47; /* Dark gray text for better contrast */
+    margin: 0;
+    padding: 0;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #007bff; /* Bright blue for links */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.iframe-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */  /* Hide any overflow */
+}
+
+
+
+.responsive-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+
+/* Navbar */
+nav {
+    background-color: #007bff; /* Bright blue navbar */
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5em;
+}
+
+nav .brand {
+    font-weight: bold;
+    font-size: 2em;
+    font-family: 'Amiri', serif;
+}
+
+nav .search-container {
+    display: flex;
+    align-items: center;
+}
+
+nav input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #c2d4e7; /* Light border color */
+    margin-right: 10px;
+    width: 250px;
+    transition: box-shadow 0.3s ease;
+}
+
+nav input[type="text"]:focus {
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); /* Blue shadow on focus */
+}
+
+nav button {
+    background-color: #0056b3; /* Darker blue */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav button:hover {
+    background-color: #004085; /* Even darker blue on hover */
+    transform: translateY(-2px);
+}
+
+/* Filter Section */
+#filter-section {
+    padding: 20px;
+    background-color: #ffffff; /* White background for filters */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.filter-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-option {
+    margin-bottom: 15px;
+}
+
+.filter-option label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.filter-option select,
+.filter-option input[type="date"] {
+    padding: 10px;
+    border: 1px solid #c2d4e7;
+    border-radius: 5px;
+    width: 100%;
+    transition: border-color 0.3s;
+}
+
+.filter-option select:focus,
+.filter-option input[type="date"]:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none;
+}
+
+#filter-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#filter-section.show {
+    display: block;
+    opacity: 1;
+}
+
+#apply-filters {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#apply-filters:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Kasida List Styling */
+#kasida-list {
+    display: flex;
+    /* flex-direction: row; */
+    gap: 20px;
+    padding: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.kasida-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.kasida-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.kasida-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.kasida-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #007bff; /* Bright blue for card titles */
+    transition: color 0.3s;
+}
+
+.kasida-card:hover h3 {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.kasida-card p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Button Styles */
+.kasida-card a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #007bff; /* Bright blue for buttons */
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.kasida-card a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px);
+}
+
+#blurred-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-position: center;
+    z-index: -1;
+    filter: blur(5px);
+    opacity: 0.8;
+    animation: zoomBackground 30s infinite;
+}
+
+@keyframes zoomBackground {
+    0% {
+        background-size: 100%; /* Start at 100% */
+    }
+    50% {
+        background-size: 120%; /* Zoom in to 45% at halfway (60 seconds) */
+    }
+    100% {
+        background-size: 100%; /* Zoom out back to 100% at the end (another 60 seconds) */
+    }
+}
+
+/* Kasida Page Styling */
+#kasida-page {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.6s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+#kasida-page img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#kasida-page h1 {
+    font-size: 2.2em;
+    color: #007bff; /* Bright blue for headings */
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: 'Amiri', serif;
+}
+
+#kasida-page p {
+    color: #555;
+    line-height: 0.5;
+    font-size: 1.5em;
+    max-width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+/* Table for Additional Information */
+#kasida-page table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+#kasida-page table,
+th,
+td {
+    border: 1px solid #ddd;
+}
+
+#kasida-page th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+#kasida-page th {
+    background-color: #cfe2f3; /* Light blue for headers */
+    color: #007bff; /* Bright blue for header text */
+}
+
+#kasida-page td {
+    background-color: #f9f9f9; /* Light gray for table rows */
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Kasida Page Styling */
+#kasida-page {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.6s ease-in-out;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#kasida-page:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#kasida-page img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Adding border for image */
+}
+
+#kasida-page h1 {
+    font-size: 2.5em; /* Larger title */
+    color: #007bff; /* Title color */
+    margin-bottom: 20px;
+    text-align: center; /* Center align title */
+    font-family: 'Amiri', serif; /* Elegant font */
+}
+
+#kasida-page p {
+    color: #555;
+    /* line-height: 1.8; */
+    font-size: 1.2em; /* Slightly larger font for readability */
+    margin-bottom: 20px;
+    white-space: pre-line;
+}
+
+#kasida-page .line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+#kasida-page .right-align {
+    text-align: right;
+    width: 45%;
+}
+
+#kasida-page .left-align {
+    text-align: left;
+    width: 45%;
+}
+
+#kasida-page .space {
+    width: 10%;
+    text-align: center; /* Center the *** symbol */
+}
+
+
+
+.kasida-details {
+    display: flex;
+    justify-content: space-between; /* Align author and publish date */
+    margin-bottom: 20px;
+}
+
+.kasida-details div {
+    flex: 1; /* Evenly distribute space */
+    text-align: center; /* Center align text */
+}
+
+/* Card Styling for Single Kasida Page */
+.kasida-card {
+    max-width: 490px;
+    background-color: #ffffff; /* Card background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 15px; /* Padding inside card */
+    margin-bottom: 20px; /* Space between cards */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animation on hover */
+    text-align: right;
+}
+
+.kasida-card:hover {
+    transform: translateY(-2px); /* Hover effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Pagination Styling */
+.pagination {
+    display: flex;
+    justify-content: center; /* Center pagination */
+    margin: 20px 0; /* Margin around pagination */
+}
+
+.pagination a {
+    padding: 8px 12px; /* Button padding */
+    margin: 0 5px; /* Space between buttons */
+    background-color: #007bff; /* Button color */
+    color: white; /* Text color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s; /* Animation */
+}
+
+.pagination a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#back-to-home {
+    background-color: #4CAF50; /* Green background */
+    color: white;              /* White text */
+    padding: 10px 20px;       /* Padding */
+    border: none;              /* Remove border */
+    border-radius: 5px;       /* Rounded corners */
+    cursor: pointer;           /* Pointer cursor */
+    font-size: 16px;          /* Font size */
+    transition: background-color 0.3s; /* Transition effect */
+    margin-top: 20px;
+}
+
+#back-to-home:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack navbar items */
+        align-items: flex-start; /* Align items to start */
+    }
+
+    nav .search-container {
+        width: 100%; /* Full width for search */
+    }
+
+    #kasida-list {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+
+    #kasida-page {
+        padding: 15px; /* Less padding on mobile */
+    }
+
+    #kasida-page h1 {
+        font-size: 2em; /* Smaller title on mobile */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #kasida-page p {
+        max-width: 100%; /* Set max-width to 100% for mobile screens */
+        font-size: 1.5em;
+    }
+    #kasida-page .line {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column-reverse;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    
+    #kasida-page .right-align {
+        text-align: center;
+        width: 100%;
+    }
+    
+    #kasida-page .left-align {
+        text-align: center;
+        width: 100%;
+    }
+
+    #kasida-page .space {
+        display: none;
+    }
+}
