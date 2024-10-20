@@ -16,7 +16,6 @@ fetch('kasidas.json')
             // We are on the kasida details page
             loadKasidaDetails(kasidaId);
         } else {
-            document.body.style.backgroundColor = '#e9f5fb'
             // We are on the kasida list page
             const filterButton = document.getElementById('filterButton');
             const filterSection = document.getElementById('filter-section');
